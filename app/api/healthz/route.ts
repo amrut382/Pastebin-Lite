@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { checkPersistence } from '@/lib/kv';
+import { checkPersistence } from '@/lib/mongodb';
 
 export async function GET() {
   try {
