@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { getPaste } from '@/lib/kv';
 import { getCurrentTime, isPasteAvailable } from '@/lib/utils';
 import { headers } from 'next/headers';
@@ -54,18 +55,15 @@ export default async function PastePage({ params }: PageProps) {
   ));
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto', fontFamily: 'monospace' }}>
-      <h1>Paste</h1>
-      <div
-        style={{
-          backgroundColor: '#f5f5f5',
-          padding: '1rem',
-          borderRadius: '4px',
-          whiteSpace: 'pre-wrap',
-          wordBreak: 'break-word',
-        }}
-      >
-        {formattedContent}
+    <div className="container">
+      <Link href="/" className="back-link">
+        ← Back to create paste
+      </Link>
+      <div className="card">
+        <h2>Paste Content</h2>
+        <div className="paste-content">
+          {formattedContent}
+        </div>
       </div>
     </div>
   );
